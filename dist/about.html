@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/about.css">   
+    <title>About</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo"><span> Web</span>A</div>
+            <ul class="links">
+                <li><a href="#">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="#" class="active">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <button id="logout" class="action-btn">Sign in</button>
+            <div class="toggle-btn"> 
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="dropdown-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="#" class="active">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><button id="logout" class="action-btn">Sign in</button></li>
+        </div>
+    </header>
+    
+    <div class="row">
+        <div class="col">
+            <h1>WebA Visualizer</h1>
+            <p class="intro">
+                WebA is designed to visualize data about poverty rates in the Philippines.
+                By presenting data in an interactive and engaging way,
+                we aim to increase awareness about the challenges faced by those living in poverty.
+                With our easy-to-use interface and rich visualizations, you can explore data about poverty
+                rates across different regions and demographic groups, gain insights into the factors that
+                contribute to poverty in the Philippines. <br><br>
+                Join us on this journey to create a better future for all Filipinos!
+            </p>
+            <a class="btn-con" href="#">Continue<span></span><i class="fa fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="col">
+            <div class="card c1">
+                <h5>Philippines</h5>
+                <p>Let's Go Luzon Pips</p>
+            </div>
+            <div class="card c2">
+                <h5>Visayas</h5>
+                <p>Let's Go Visayas Pips</p>
+            </div>
+            <div class="card c3">
+                <h5>Mindanao</h5>
+                <p>Let's Go Mindanao Pips</p>
+            </div>
+            <div class="card c4">
+                <h5>Luzon</h5>
+                <p>Let's Go Luzon Pips</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/toggle.js"></script>
+</body>
+</html>
