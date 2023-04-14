@@ -204,9 +204,12 @@ h1{
     transform: translateY(-10px);
     filter: none;
 }
-h5{
+.card h5{
     color: #fff;
     text-shadow: 0 0 5px #999;
+}
+.card p{
+    font-size: 12px;
 }
 
 
