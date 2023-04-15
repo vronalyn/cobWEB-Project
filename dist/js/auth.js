@@ -16,6 +16,7 @@ const firebaseConfig = {
   appId: "1:120520164746:web:5e8b969ba9c307f0c23473",
   measurementId: "G-9M1TYVJ98Z"
 };
+
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
@@ -33,7 +34,7 @@ document.getElementById("register").addEventListener("click", function() {
       const user = userCredential.user;
       console.log(user);
       alert("Registration successfully!!");
-      window.location = "home.html";
+      window.location = "./home.html";
       // ...
     })
     .catch((error) => {
@@ -57,7 +58,7 @@ document.getElementById("login").addEventListener("click", function() {
       const user = userCredential.user;
       console.log(user);
       alert(user.email+" Login successfully!!!");
-      window.location = "home.html";
+      window.location = "./home.html";
 
     //   document.getElementById('logout').style.display = 'block';
       // ...
@@ -73,7 +74,7 @@ document.getElementById("login").addEventListener("click", function() {
 
 
   //----- login with google
-  document.getElementById("signInnWithGoogle" ).addEventListener("click", function()  {
+  document.getElementById("signInWithGoogle" ).addEventListener("click", function()  {
     // sign in with popup tab
   signInWithPopup(auth, provider).then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -83,7 +84,7 @@ document.getElementById("login").addEventListener("click", function() {
       const user = result.user;
 
       alert(user.email+" Login successfully!!!");
-      window.location = "home.html";
+      window.location = "./home.html";
       // alert(user.displayName);
       // ...
     }).catch((error) => {
@@ -113,7 +114,7 @@ signInWithPopup(auth, provider).then((result) => {
   const user = result.user;
 
   alert(user.email+" Sign Up successfully!!!");
-  window.location = "home.html";
+  window.location = "./home.html";
   // alert(user.displayName);
   // ...
 }).catch((error) => {
@@ -142,7 +143,7 @@ signInWithPopup(auth, Fbprovider).then((result) => {
   const user = result.user;
 
   alert(user.displayname+" Login successfully!!!");
-  window.location = "home.html";
+  window.location = "./home.html";
   // alert(user.displayName);
   // ...
 }).catch((error) => {
@@ -170,7 +171,7 @@ signInWithPopup(auth, Fbprovider).then((result) => {
   const user = result.user;
 
   alert(user.displayname+" Sign Up  successfully!!!");
-  window.location = "home.html";
+  window.location = "./home.html";
   // alert(user.displayName);
   // ...
 }).catch((error) => {
