@@ -74,11 +74,15 @@ header{
     padding: 0.5rem 1.5rem;
     border: none;
     outline: none;
-    border-radius: 20px;
+    border-radius: 50px;
     font-size: 0.8rem;
     cursor: pointer;
     box-shadow: 0 8px 16px 0 rgba(114, 114, 114, 0.2), 0 6px 20px 0 rgba(32, 32, 32, 0.616);
     transition: scale 0.2 ease;
+}
+.action-btn img{
+    width: 20px;
+    height: 20px;
 }
 .action-btn:hover{
     scale:1.05;

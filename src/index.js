@@ -1,11 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
-  GoogleAuthProvider, 
-  FacebookAuthProvider } from "firebase/auth";;
+import { getStorage, ref, uploadBytes, uploadString, getDownloadURL} from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVcBjemdXl_Voqmf-bacf4kf9989tD9-w",
@@ -19,171 +14,63 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider(app);
-const Fbprovider = new FacebookAuthProvider();
+console.log(app)
 
-//----- New Registration code start	  
-document.getElementById("register").addEventListener("click", function() {
-  var email =  document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  //For new registration
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user);
-    alert("Registration successfully!!");
-    window.location = "./home.html";
-    // ...
+
+const storage = getStorage();
+//connectStorageEmulator(storage, 'localhost', 9199);
+
+const storageTxt = ref(storage, "storage.txt");
+const notesFolder = ref(storage, "notes");
+const newTxtInSubFolder = ref(storage, "newText.txt");
+const shortcutWay = ref(storage, "another-notes/newNewText.txt");
+const anotherText = ref(notesFolder, "anotherText.txt");
+
+const upload = document.querySelector('.upload')
+upload.addEventListener('click', () => {
+  const bytes = new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 
+    0x6f, 0x2c, 0x20, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x21]);
+
+  uploadBytes(storageTxt, bytes).then((snapshot) => {
+    console.log('Uploaded an array!'); 
+  });
+  
+const newTextfile = new File(["Hello", " ", "World"], "newTextfile.txt")
+
+  uploadBytes(newTxtInSubFolder, newTextfile).then((snapshot) =>{
+    console.log("Upload file from a buffer")
+  })  
+  const message = "Hello World!"
+  uploadString(shortcutWay, message).then((snapshot) =>{
+    console.log('Upload from string')
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-    console.log(errorMessage);
-    alert(error);
-  });		  		  
-});
-//----- End
-
-//----- Login code start	  
-document.getElementById("login").addEventListener("click", function() {
-  var email =  document.getElementById("login_email").value;
-  var password = document.getElementById("login_password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user);
-    alert(user.email+" Login successfully!!!");
-    window.location = "./home.html";
-
-  //   document.getElementById('logout').style.display = 'block';
-    // ...
+  uploadString(anotherText, message).then((snapshot) =>{
+    console.log('Upload from string again')
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    alert(errorMessage);
-  });		  		  
+    
+})
+
+/** 
+const downloadBtn = document.querySelector('.dl')
+downloadBtn.addEventListener('click', () => {
+  getDownloadURL(storageTxt).then((url) => {
+    console.log(`Download file at: ${url}`)
+  })
+
+})
+*/
+const downloadBtn = document.querySelector('.dl');
+downloadBtn.addEventListener('click', () => {
+  getDownloadURL(storageTxt).then((url) => {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = storageTxt.name; // set the download filename
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    console.log(`Download file at: ${url}`);
+  });
 });
-// //----- End
 
 
-//----- login with google
-document.getElementById("signInWithGoogle" ).addEventListener("click", function()  {
-  // sign in with popup tab
-signInWithPopup(auth, provider).then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
 
-    alert(user.email+" Login successfully!!!");
-    window.location = "./home.html";
-    // alert(user.displayName);
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-
-    alert(errorMessage);
-});
-}); 
-// //----- End
-
-  //----- Signup with Google
-
-document.getElementById("signUpWithGoogle" ).addEventListener("click", function()  {
-// sign in with popup tab
-signInWithPopup(auth, provider).then((result) => {
-// This gives you a Google Access Token. You can use it to access the Google API.
-const credential = GoogleAuthProvider.credentialFromResult(result);
-const token = credential.accessToken;
-// The signed-in user info.
-const user = result.user;
-
-alert(user.email+" Sign Up successfully!!!");
-window.location = "./home.html";
-// alert(user.displayName);
-// ...
-}).catch((error) => {
-// Handle Errors here.
-const errorCode = error.code;
-const errorMessage = error.message;
-// The email of the user's account used.
-const email = error.email;
-// The AuthCredential type that was used.
-const credential = GoogleAuthProvider.credentialFromError(error);
-// ...
-
-alert(errorMessage);
-});
-}); 
-// //----- End
-
-    //----- login with Facebook
-document.getElementById("signInWithFacebook" ).addEventListener("click", function()  {
-// sign in with popup tab
-signInWithPopup(auth, Fbprovider).then((result) => {
-// This gives you a Google Access Token. You can use it to access the Google API.
-const credential = FacebookAuthProvider.credentialFromResult(result);
-const token = credential.accessToken;
-// The signed-in user info.
-const user = result.user;
-
-alert(user.displayname+" Login successfully!!!");
-window.location = "./home.html";
-// alert(user.displayName);
-// ...
-}).catch((error) => {
-// Handle Errors here.
-const errorCode = error.code;
-const errorMessage = error.message;
- // The email of the user's account used.
- const email = error.email;
- // The AUTH Credential type that was used.
- const credential = FacebookAuthProvider.credentialFromError(error);
-// ...
-alert(errorMessage);
-});
-}); 
-// //----- End
-
-      //----- Sign Up with Facebook
-document.getElementById("signUpWithFacebook" ).addEventListener("click", function()  {
-// sign in with popup tab
-signInWithPopup(auth, Fbprovider).then((result) => {
-// This gives you a Google Access Token. You can use it to access the Google API.
-const credential = FacebookAuthProvider.credentialFromResult(result);
-const token = credential.accessToken;
-// The signed-in user info.
-const user = result.user;
-
-alert(user.displayname+" Sign Up  successfully!!!");
-window.location = "./home.html";
-// alert(user.displayName);
-// ...
-}).catch((error) => {
-// Handle Errors here.
-const errorCode = error.code;
-const errorMessage = error.message;
- // The email of the user's account used.
- const email = error.email;
- // The AUTH Credential type that was used.
- const credential = FacebookAuthProvider.credentialFromError(error);
-// ...
-alert(errorMessage);
-});
-}); 
-// //----- End

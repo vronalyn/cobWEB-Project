@@ -1,27 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Carme&family=Montserrat+Subrayada:wght@700&family=Oswald:wght@500&family=Oxygen:wght@700&family=Raleway&family=Roboto&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', serif;
 }
-.wrapper{
-    margin: 0 auto;
-}
+
 body{
-    padding-top: 50px;
-    min-height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; 
-    background-color: #000;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
 }
 li {
     list-style: none;
 }
-a {
+.nav a, .dropdown-menu a {
     text-decoration: none;
     color: #fff;
     font-family: 'Roboto';
@@ -37,12 +31,11 @@ a:hover,
 }
 /* HEADER */
 header{
-    top: 0;
     position: fixed;
     width: 100%;
     padding: 0 2rem;
     background-color: #00000093;
-    z-index: 999;
+    z-index: 9999;
 }
 /* NAVBAR */
 .nav{
@@ -106,14 +99,14 @@ header{
     top: 60px;
     height: 0;
     width: 300px;
-    background: rgb(255,255,255,0.1);
+    background: rgba(0, 0, 0, 0.192);
     backdrop-filter: blur(15px);
     border-radius: 10px;
     overflow: hidden;
     transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dropdown-menu.open{
-    height: 220px;
+    height: 250px;
 }
 .dropdown-menu li{
     padding: 0.7rem;
@@ -121,62 +114,110 @@ header{
     align-items: center;
     justify-content: center;
 }
-/*News Articles*/
-.banner-area {
-	width: 100%;
-	height: 500px;
-	position: fixed;
-	top: 100px;
-}
-.banner-area h2 {
-	padding-top: 8%;
-	font-size: 70px;
-	font-family: poppins;
-	text-transform: uppercase;
-	color: #fff;
-    text-align: center;
+/*CONTACT FORM*/
+.Box-wrap {
+    height: 640px;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.content-area {
-	width: 100%;
-	position: relative;
-	top: 450px;
-	background: #ebebeb;
-	height: 1500px;
+.form{
+    /* justify-content: center;
+    align-items: center;
+    display: flex; */
+    padding: 20px 80px 20px 0;
 }
-.content-area h2 {
-	font-family: 'Carme';
-    text-transform: uppercase;
-	letter-spacing: 3px;
-	padding-top: 30px;
-	font-size: 40px;
-	margin: 0;
+
+.form span{
+    padding-left: 400px;
+    padding-top: 20px;
 }
-.content-area p {
-	padding: 2% 0px;
-	font-family: 'Carme';
-	line-height: 30px;
+.form input[type=text] {
+    border: solid rgb(233, 233, 233);
+    width: 350px;
+    padding: 5px;
+    margin-top: 5px;
 }
-.content-area a{
-    color: #0fa9bd;
+
+.form input[type=texts] {
+    border: solid rgb(233, 233, 233);
+    width: 170px;
+    padding: 5px;
 }
-.content-area a:hover{
-    text-decoration: underline;
+
+.form .textarea{
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(233, 233, 233);
+    width: 350px;
+    height: 150px;
+    margin-top: 5px;
+    padding-left: 10px;
+    resize: none;
+    color: #000;
 }
-.content-area span{
-    opacity: 50%;
+
+.row{
+    position: absolute;
+    padding-top: 10px;
+    width: 100%;
+    /* background-color: aliceblue; */
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.column{
+    float: left;
+    width: 50%;
+    height: 470px;
+    /* border: solid; */
+    
+}
+
+.contact{
+    padding-top: 80px;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: center;
+    
+}
+
+.contact p{
+margin-top: 8px;
+font: 15px sans-serif;
+line-height: 22px;
+}
+
+
+a{
+padding-top: 10px;
+    text-decoration: none;
+    color: black;
+}
+
 hr{
-    opacity: 30%;
-    margin-top: 25px;
-}
-section{
-    padding: 60px;
-}
-.news-2{
-    background-color: #e0e0e0;
+    width: 50%;
+    margin-top: 10px;
 }
 
+.btn-submit{
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    background-color: rgb(207, 207, 207);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-submit:hover{
+    background-color: black;
+    color: aliceblue;
+    transition: .3s ease-in-out;
+}
 /* MEDIA RESPONSIVE */
 @media (max-width: 900px) {
     .nav .links,
@@ -195,4 +236,9 @@ section{
         left: 2rem;
         width: unset;
     }
+    .card{
+        height: 200px;
+        width: 280px;
+    }
+
 }

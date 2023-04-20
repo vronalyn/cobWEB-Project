@@ -1,175 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in & Sign up Form</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/index.css" />
+    <title>Philippine Poverty</title>
+    <link rel="stylesheet" href="./css/index.css">
     <script defer src="./bundle.js"></script>
-  </head>
-  <body>
-    <main>
-      <div class="box">
-        <div class="inner-box">
-          <div class="forms-wrap">
-            <form action="#" autocomplete="off" class="sign-in-form">
-              <!--
-              <div class="logo">
-                <img src="./img/logo.png" alt="easyclass" />
-                <h4>easyclass</h4>
-              </div>-->
+</head>
+<style>
 
-              <div class="heading">
-                <h2>Welcome Back</h2>
-                <h6>Not registred yet?</h6>
-                <a href="#" class="toggle">Sign up</a>
-
-              </div>
-
-              <div class="actual-form">
-                <div class="input-wrap">
-                  <input
-                    id="login_email"
-                    type="text"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    
-                  />
-                  <label>Email</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    id="login_password"
-                    type="password"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    
-                  />
-                  <label>Password</label>
-                </div>
-                <button id="login" class="sign-btn">Sign in</button>
-                
-                <div class="option">
-                <h6>OR <br>Sign in with</h6><br>
-                  <div class="social-icons">
-                    <button id="signInWithFacebook" class="facebook">
-                      <i class="fa fa-facebook-f"></i></button>
-                    <button id="signInWithGoogle" class="google">
-                      <i class="fa fa-google"></i></button>
-                  </div>
-                </div>
-                <p class="text">
-                  Forgotten your password or your login datails?
-                  <a href="#">Get help</a> signing in
-                </p>
-              </div>
-              
-            </form>
-
-            <form action="#" autocomplete="off" class="sign-up-form">
-              <!--
-              <div class="logo">
-                <img src="./img/logo.png" alt="easyclass" />
-                <h4>easyclass</h4>
-              </div>-->
-
-              <div class="heading">
-                <h2>Get Started</h2>
-                <h6>Already have an account?</h6>
-                <a href="#" class="toggle">Sign in</a>
+</style>
+<body>
+    <div class="popup" id="popup-1">
+        <div class="overlay">
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup()">&times;</div>
+                    <h1>Download</h1>
+                    <p>Sign in required to dowload the file.</p>
+                    <button onclick="togglePopup()">Cancel</button>
+                    <button onclick="location.href='form.html'">Sign in</button>  
             </div>
-
-              <div class="actual-form">
-                <div class="input-wrap">
-                  <input
-                    type="text"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                   
-                  />
-                  <label>Name</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    id="email"
-                    type="email"
-                    class="input-field"
-                    autocomplete="off"
-                    
-                  />
-                  <label>Email</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    id="password"
-                    type="password"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    
-                  />
-                  <label>Password</label>
-                </div>
-                <button id="register" class="sign-btn">Sign Up</button>
-               
-                
-                <div class="option">
-                  <h6>OR <br>Sign up with</h6><br>
-                    <div class="social-icons">
-                      <button id="signUpWithFacebook" class="facebook">
-                        <i class="fa fa-facebook-f"></i></button>
-                      <button id="signUpWithGoogle" class="google">
-                        <i class="fa fa-google"></i></button>
-                    </div>
-                  </div>
-
-                <p class="text">
-                  By signing up, I agree to the
-                  <a href="#">Terms of Services</a> and
-                  <a href="#">Privacy Policy</a>
-                </p>
-              </div>
-            </form>
-          </div>
-
-          <div class="carousel">
-            <div class="images-wrapper">
-              <img src="" class="image img-1 show" alt="" />
-              <img src="" class="image img-2" alt="" />
-              <img src="" class="image img-3" alt="" />
-            </div>
-
-            <div class="text-slider">
-              <div class="text-wrap">
-                <div class="text-group">
-                  <h2>Get data Visualization</h2>
-                  <h2>Realtime Charts</h2>
-                  <h2>Stay Updated</h2>
-                </div>
-              </div>
-
-              <div class="bullets">
-                <span class="active" data-value="1"></span>
-                <span data-value="2"></span>
-                <span data-value="3"></span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+    <main>
+    <button onclick="history.back()">Back</button>
+    <a href="news.html">Read news</a>
+    <h1>Philippine: Poverty Statistics</h1><br>
+    <button class="upload">Upload</button>
+    <button class="dl">Download File</button>
+    <button id="download" onclick="togglePopup()">Download</button>
     </main>
-
-    <!-- Javascript files -->
-
-    <script src="./js/indexAcc.js"></script>
-
-  </body>
+<script>
+    function togglePopup(){
+        document.getElementById("popup-1").classList.toggle("active");
+    }
+</script>
+</body>
 </html>

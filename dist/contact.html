@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="./css/contact.css">
+        <script src="https://kit.fontawesome.com/80ce7efaf0.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo"><span> Web</span>A</div>
+            <ul class="links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+            <button onClick="location.href='index.html'" id="sign-in" class="action-btn">
+                <img src="https://img.icons8.com/windows/32/null/admin-settings-male.png"/>
+            </button>
+            <div class="toggle-btn"> 
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="dropdown-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+            <li><button onClick="location.href='index.html'" id="sign-in" class="action-btn">
+                <img src="https://img.icons8.com/windows/32/null/admin-settings-male.png"/>
+            </button></li>
+        </div>
+    </header>
+    <div class="Box-wrap">
+        <div class="row">
+                <div class="contact column">
+                    <h1>Contact Us</h1>
+                    <p>Hello! Feel free to use the contact form to the right to reach out to us, or write us the old fashion</p>
+                        <br>
+                        <a href="http://"><i class="fa-solid fa-location-dot"></i> Iligan City</a> <hr> <br>
+                        <a href="http://"><i class="fa-solid fa-mobile-screen"></i> 0907698006</a> <hr> <br>
+                        <a href=""><i class="fa-solid fa-envelopes-bulk"></i> cobwebteam23@gmail.com</a>
+                </div>
+
+                <div class="form column">
+                    <p> Don't be afraid to reach out and contact us if you have any questions or need assistance.
+                        Remember, 'The best way to predict your future is to create it.' </p> <br>
+                   <span>-Abraham Lincoln.</span><br><br>
+                <form action="">
+                    <input type="texts" name="fname" id="fname" Placeholder="First Name" >
+                    <input type="texts" name="lname" id="lname" Placeholder="last Name"> <br>
+                    <input type="text" name="email" id="email" Placeholder="Email Address"> <br>
+                    <input type="text" name="Subject" id="subject" Placeholder="Subject" > <br>
+                    <textarea type="text" class="textarea" name="message" id="message"  placeholder="Write your message here.."></textarea>
+                    <br>
+                
+                    <button id="contact-btn" class="btn-submit">Submit</button>
+
+                </form>
+                </div>
+        </div>
+    </div>
+    
+    <script src="./js/toggle.js"></script>
+</body>
+</html>
