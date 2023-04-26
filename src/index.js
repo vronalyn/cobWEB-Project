@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage, ref, uploadBytes, uploadString, getDownloadURL} from 'firebase/storage';
+import { getStorage, ref, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { getAuth, onAuthStateChanged} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVcBjemdXl_Voqmf-bacf4kf9989tD9-w",
@@ -14,6 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
 console.log(app)
 
 
@@ -21,6 +23,7 @@ const storage = getStorage();
 //connectStorageEmulator(storage, 'localhost', 9199);
 
 const storageTxt = ref(storage, "storage.txt");
+/** 
 const notesFolder = ref(storage, "notes");
 const newTxtInSubFolder = ref(storage, "newText.txt");
 const shortcutWay = ref(storage, "another-notes/newNewText.txt");
@@ -50,7 +53,7 @@ const newTextfile = new File(["Hello", " ", "World"], "newTextfile.txt")
     
 })
 
-/** 
+
 const downloadBtn = document.querySelector('.dl')
 downloadBtn.addEventListener('click', () => {
   getDownloadURL(storageTxt).then((url) => {
@@ -58,8 +61,9 @@ downloadBtn.addEventListener('click', () => {
   })
 
 })
-*/
-const downloadBtn = document.querySelector('.dl');
+
+
+const downloadBtn = document.querySelector('.dl')
 downloadBtn.addEventListener('click', () => {
   getDownloadURL(storageTxt).then((url) => {
     const downloadLink = document.createElement('a');
@@ -69,8 +73,51 @@ downloadBtn.addEventListener('click', () => {
     downloadLink.click();
     document.body.removeChild(downloadLink);
     console.log(`Download file at: ${url}`);
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    if (errorCode === 'storage/unauthorized') {
+      // Show popup and prevent default action
+      togglePopup();
+    } else {
+      console.log(errorMessage);
+    }
+  });
+});*/
+
+
+const downloadBtn = document.querySelector('.dl')
+downloadBtn.addEventListener('click', () => {
+  getDownloadURL(storageTxt).then((url) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = url;
+        downloadLink.download = storageTxt.name; // set the download filename
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        console.log(`Download file at: ${url}`);
+      } else {
+        // Show popup and prevent default action
+        togglePopup();
+      }
+    });
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    if (errorCode === 'storage/unauthorized') {
+      // Show popup and prevent default action
+      togglePopup();
+    } else {
+      console.log(errorMessage);
+    }
   });
 });
+
+function togglePopup(){
+  document.getElementById("popup-1").classList.toggle("active");
+}
 
 
 

@@ -91,7 +91,7 @@ header{
 .action-btn:active{
     scale:0.95;
 }
-/* DROPDOWN MENU */
+/* DROPDOWN MENU 
 .dropdown-menu{
     position: absolute;
     right: 2rem;
@@ -112,7 +112,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}*/
 /*CONTENT*/
 .row{
     display: flex;
@@ -221,13 +221,13 @@ h1{
 @media (max-width: 900px) {
     .nav .links,
     .nav .action-btn {
-        display: none;
+        display: block;
     }
     .nav .toggle-btn{
-        display: block;
+        display: none;
     }
     .dropdown-menu{
-        display: block;
+        display: none;
     }
 }
 @media (max-width: 576px) {

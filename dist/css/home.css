@@ -1,27 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Carme&family=Montserrat+Subrayada:wght@700&family=Oswald:wght@500&family=Oxygen:wght@700&family=Raleway&family=Roboto&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', serif;
 }
-.wrapper{
-    margin: 0 auto;
-}
+
 body{
-    padding-top: 50px;
-    min-height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center; 
-    background-color: #000;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
 }
 li {
     list-style: none;
 }
-a {
+.nav a, .dropdown-menu a {
     text-decoration: none;
     color: #fff;
     font-family: 'Roboto';
@@ -37,12 +31,11 @@ a:hover,
 }
 /* HEADER */
 header{
-    top: 0;
     position: fixed;
     width: 100%;
     padding: 0 2rem;
     background-color: #00000093;
-    z-index: 999;
+    z-index: 9999;
 }
 /* NAVBAR */
 .nav{
@@ -106,7 +99,7 @@ header{
     top: 60px;
     height: 0;
     width: 300px;
-    background: rgb(255,255,255,0.1);
+    background: rgba(0, 0, 0, 0.192);
     backdrop-filter: blur(15px);
     border-radius: 10px;
     overflow: hidden;
@@ -121,78 +114,91 @@ header{
     align-items: center;
     justify-content: center;
 }
-/*News Articles*/
-.banner-area {
-	width: 100%;
-	height: 500px;
-	position: fixed;
-	top: 100px;
+
+main{
+  text-align: center;
 }
-.banner-area h2 {
-	padding-top: 8%;
-	font-size: 70px;
-	font-family: poppins;
-	text-transform: uppercase;
-	color: #fff;
-    text-align: center;
+.cont{
+  padding-top: 80px;
+}
+.popup .overlay{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
 }
 
-.content-area {
-	width: 100%;
-	position: relative;
-	top: 450px;
-	background: #ebebeb;
-	height: 1500px;
+.popup .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%) scale(0);
+  background: #fff;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
-.content-area h2 {
-	font-family: 'Carme';
-    text-transform: uppercase;
-	letter-spacing: 3px;
-	padding-top: 30px;
-	font-size: 40px;
-	margin: 0;
+.popup .close-btn{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background: #222;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
 }
-.content-area p {
-	padding: 2% 0px;
-	font-family: 'Carme';
-	line-height: 30px;
-}
-.content-area a{
-    color: #0fa9bd;
-}
-.content-area a:hover{
-    text-decoration: underline;
-}
-.content-area span{
-    opacity: 50%;
-}
-hr{
-    opacity: 30%;
-    margin-top: 25px;
-}
-section{
-    padding: 60px;
-}
-.news-2{
-    background-color: #e0e0e0;
+.popup.active .overlay{
+  display: block;
 }
 
+.popup.active .content{
+  transition:all 300 ease-in-out;
+  transform:translate(-50%, -50%) scale(1);
+
+}
+button{
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 6px;
+}
+.close-btn{
+  cursor: pointer;
+}
 /* MEDIA RESPONSIVE */
 @media (max-width: 900px) {
-    .nav .links,
-    .nav .action-btn {
-        display: none;
-    }
-    .nav .toggle-btn{
-        display: block;
-    }
-    .dropdown-menu{
-        display: block;
-    }
+  .nav .links,
+  .nav .action-btn {
+      display: none;
+  }
+  .nav .toggle-btn{
+      display: block;
+  }
+  .dropdown-menu{
+      display: block;
+  }
 }
 @media (max-width: 576px) {
-    .dropdown-menu {
-        left: 2rem;
-        width: unset;
-    }
+  .dropdown-menu {
+      left: 2rem;
+      width: unset;
+  }
+  .card{
+      height: 200px;
+      width: 280px;
+  }
+
 }

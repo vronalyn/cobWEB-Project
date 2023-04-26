@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/80ce7efaf0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/aboutUs.css">
+    <title>About Us</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo"><span> Web</span>A</div>
+            <ul class="links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="aboutUs.html"class="active">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <button onClick="location.href='form.html'" id="sign-in" class="action-btn">
+                Sign in
+            </button>
+            <div class="toggle-btn"> 
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="dropdown-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="aboutUs.html"class="active">About</a></li>
+            <li><a href="contact.html" >Contact Us</a></li>
+            <li><button onClick="location.href='form.html'" id="sign-in" class="action-btn">
+                Sign in
+            </button></li>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="content">
+            <img src="./img/undraw_engineering_team_a7n2.svg" alt="">
+            <div class="text">
+                <h1>About Us</h1>
+                <h5>Developer & Designer</h5>
+                <p>As the developers of this web app, 
+                    our main goal is to provide our users with 
+                    an engaging and informative way
+                    to visualize data on poverty rates in the Philippines. 
+                    We believe that by presenting this data in a user-friendly format,
+                    we can increase awareness about the challenges faced
+                    by those living in poverty and inspire positive change.
+                    Our team is dedicated to creating a rich and interactive experience for our users, 
+                    and we are committed to constantly improving and updating 
+                    our web app to ensure that it meets their needs and expectations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="./js/logout.js"></script>
+    <script src="./js/toggle.js"></script>
+    
+</body>
+</html>

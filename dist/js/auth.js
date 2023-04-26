@@ -1,11 +1,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
-import { getAuth, 
+import { getAuth,
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
   signInWithPopup, 
   GoogleAuthProvider, 
-  FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+  FacebookAuthProvider } 
+  from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVcBjemdXl_Voqmf-bacf4kf9989tD9-w",
@@ -34,7 +35,7 @@ document.getElementById("register").addEventListener("click", function() {
     const user = userCredential.user;
     console.log(user);
     alert("Registration successfully!!");
-    window.location = "./index.html";
+    window.location = "./home.html";
     // ...
   })
   .catch((error) => {
@@ -58,7 +59,7 @@ document.getElementById("login").addEventListener("click", function() {
     const user = userCredential.user;
     console.log(user);
     alert(user.email+" Login successfully!!!");
-    window.location = "./index.html";
+    window.location = "./home.html";
 
   //   document.getElementById('logout').style.display = 'block';
     // ...
@@ -84,7 +85,7 @@ signInWithPopup(auth, provider).then((result) => {
     const user = result.user;
 
     alert(user.email+" Login successfully!!!");
-    window.location = "./index.html";
+    window.location = "./home.html";
     // alert(user.displayName);
     // ...
   }).catch((error) => {
@@ -114,7 +115,7 @@ const token = credential.accessToken;
 const user = result.user;
 
 alert(user.email+" Sign Up successfully!!!");
-window.location = "./index.html";
+window.location = "./home.html";
 // alert(user.displayName);
 // ...
 }).catch((error) => {
@@ -143,7 +144,7 @@ const token = credential.accessToken;
 const user = result.user;
 
 alert(user.displayname+" Login successfully!!!");
-window.location = "./index.html";
+window.location = "./home.html";
 // alert(user.displayName);
 // ...
 }).catch((error) => {
@@ -171,7 +172,7 @@ const token = credential.accessToken;
 const user = result.user;
 
 alert(user.displayname+" Sign Up  successfully!!!");
-window.location = "./index.html";
+window.location = "./home.html";
 // alert(user.displayName);
 // ...
 }).catch((error) => {
@@ -187,3 +188,4 @@ alert(errorMessage);
 });
 }); 
 // //----- End
+
