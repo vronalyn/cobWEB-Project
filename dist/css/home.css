@@ -112,7 +112,8 @@ header{
     transition: scale 0.2 ease;
 }
 .actionBtn:hover{
-    color: #8cd8e2;
+    background-color: #589fa8;
+    scale:1.05;
 }
 /* DROPDOWN MENU */
 .dropdown-menu{
@@ -138,7 +139,7 @@ header{
 }
 
 /*News Articles*/
-button {
+.content-area button {
   font-size: 12px;
   color: #fff;
   padding: 10px 15px;
@@ -156,7 +157,8 @@ button {
 .below button{
     margin-top: 10px;
 }
-button:hover {
+
+.content-area button:hover {
   background-color: #fff;
   border: 1px solid #066575;
   color: #000000;

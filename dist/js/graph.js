@@ -47,7 +47,7 @@ const db2 = firebase.firestore();  // Function for Database Firestore
 
 db2.collection("2015")
 .orderBy("PovertyIncidence", "desc")
-    .limit(12)
+    .limit(20)
 .onSnapshot(
   (querySnapshot) => {
 
@@ -63,7 +63,7 @@ db2.collection("2015")
 
     db2.collection("2012city")
     .orderBy("PovertyIncidence", "desc")
-    .limit(12)
+    .limit(20)
 .onSnapshot(
   (querySnapshot) => { 
     let Poverty2012Data = [];  
@@ -163,7 +163,7 @@ db2.collection("2015")
 
 db2.collection("2012region")
 .orderBy("PovertyIncidence", "desc")
-    .limit(12)
+    .limit(20)
 .onSnapshot(
   (querySnapshot) => {
 
@@ -179,7 +179,7 @@ db2.collection("2012region")
 
     db2.collection("2015-region")
     .orderBy("PovertyIncidence", "desc")
-    .limit(12)
+    .limit(20)
 .onSnapshot(
   (querySnapshot) => { 
     let Poverty2015Data = [];  
