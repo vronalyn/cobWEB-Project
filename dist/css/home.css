@@ -149,6 +149,7 @@ header{
   border: 1px solid;
   cursor: pointer;
 }
+
 .below{
     margin-top: 40px;
     margin-bottom: 20px;
@@ -309,9 +310,21 @@ section{
     color: #333;
   }
 .content button {
-    font-size: 14px;
-    padding: 8px 12px;
     margin: 0 5px;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    background: #0fa9bd;
+    border-radius: 10px;
+    border: 1px solid;
+    cursor: pointer;
+  }
+.content button:hover {
+    background-color: #fff;
+    border: 1px solid #066575;
+    color: #000000;
+    transition: .3s;
   }
 .content .Btn {
     margin-top: 25px;
