@@ -91,28 +91,22 @@ header{
 .action-btn:active{
     scale:0.95;
 }
-/* DROPDOWN MENU 
-.dropdown-menu{
-    position: absolute;
-    right: 2rem;
-    top: 60px;
-    height: 0;
-    width: 300px;
-    background: rgb(255,255,255,0.1);
-    backdrop-filter: blur(15px);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.actionBtn{
+    background-color: #0fa9bd7e;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(114, 114, 114, 0.2), 0 6px 20px 0 rgba(32, 32, 32, 0.616);
+    transition: scale 0.2 ease;
 }
-.dropdown-menu.open{
-    height: 220px;
+.actionBtn:hover{
+    color: #8cd8e2;
 }
-.dropdown-menu li{
-    padding: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}*/
+
 /*CONTENT*/
 .row{
     display: flex;
@@ -218,35 +212,6 @@ h1{
 
 
 /* MEDIA RESPONSIVE */
-@media (max-width: 900px) {
-    .nav .links,
-    .nav .action-btn {
-        display: block;
-    }
-    .nav .toggle-btn{
-        display: none;
-    }
-    .dropdown-menu{
-        display: none;
-    }
-}
-@media (max-width: 576px) {
-    .dropdown-menu {
-        left: 2rem;
-        width: unset;
-    }
-    .card{
-        height: 200px;
-        width: 280px;
-    }
-
-}
-@media (max-width: 620px){
-    .card{
-        width: 280px;
-    }
-}
-
 /* Style for mobile devices */
 @media screen and (max-width: 780px) {
     .row {

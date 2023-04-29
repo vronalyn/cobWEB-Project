@@ -4,65 +4,428 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/80ce7efaf0.js" crossorigin="anonymous"></script>
-    <title>Philippine Poverty</title>
+    <title>Home</title>
     <link rel="stylesheet" href="./css/home.css">
     <script defer src="./bundle.js"></script>
-</head>
+    <!-- additional styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
+      <!-- js charting script -->
+      <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+      <script type="text/javascript" src="https://code.jscharting.com/latest/modules/toolbar.js"></script>
+      <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
+      <style>
+        
+    </style>
+</head>
 <body>
     <header>
         <nav class="nav">
             <div class="logo"><span> Web</span>A</div>
             <ul class="links">
                 <li><a href="home.html"class="active">Home</a></li>
-                <li><a href="news.html">News</a></li>
+                <li><a href="news.html" >News</a></li>
                 <li><a href="aboutUs.html">About</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-            <button onClick="location.href='form.html'" id="sign-in" class="action-btn">
-                Sign in
-            </button>
+            <div class="btn">
+                <button onClick="location.href='form.html'" id="sign-in" 
+                class="action-btn">Sign in</button>
+                <button class="actionBtn" id="admin" onclick="location.href='adminLogin.html'"><i class='fas fa-user-cog'></i> </button>               
+            </div>
             <div class="toggle-btn"> 
                 <i class="fa fa-bars"></i>
             </div>
         </nav>
 
         <div class="dropdown-menu">
-            <li><a href="home.html"class="active">Home</a></li>
+            <li><a href="home.html" class="active">Home</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="aboutUs.html">About</a></li>
-            <li><a href="contact.html" >Contact Us</a></li>
-            <li><button onClick="location.href='form.html'" id="sign-in" class="action-btn">
-                Sign in
-            </button></li>
-        </div>
-    </header>
-    <div class="popup" id="popup-1">
-        <div class="overlay">
-            <div class="content">
-                <div class="close-btn" onclick="togglePopup()">&times;</div>
-                    <h1>Download</h1>
-                    <p>Sign in required to dowload the file.</p>
-                    <button onclick="togglePopup()">Cancel</button>
-                    <button onclick="location.href='form.html'">Sign in</button>  
+            <li><a href="contact.html">Contact Us</a></li>
+            <div class="parent">
+                <button onClick="location.href='form.html'" id="sign-in" 
+                    class="action-btn">Sign in</button>
+                <button class="action-btn" id="admin" onclick="location.href='adminLogin.html'"><i class='fas fa-user-cog'></i> </button>
             </div>
         </div>
-    <main>
-        <div class="cont">
-            <h1>Philippine: Poverty Statistics</h1><br>
-            <button class="upload">Upload</button>
-            <button class="dl">Download File</button>
-        </div>
-    </main>
+    </header>
+    <!--Popup Start-->
+    <div class="popup" id="popup-1">
+      <div class="overlay">
+          <div class="content">
+              <div class="close-btn" onclick="togglePopup()">&times;</div>
+              <i class="fa fa-lock"></i>
+              <h2>Sign in</h2><br>
+              <h3>Sign in required. Please sign in or register to Download the file.</h3>
+                  <button class="Btn" onclick="togglePopup()">Cancel</button>
+                  <button class="Btn" onclick="location.href='form.html'">Sign in</button>  
+          </div>
+      </div>
+      <!--Popup End-->
 
-<script>
-    function togglePopup(){
-        document.getElementById("popup-1").classList.toggle("active");
-    }
-</script>
-<script type="module" src="./js/logout.js"></script>
-<script src="./js/toggle.js"></script>
+  </main>
+    <div class="banner-area">
+        <h1>Philippine Poverty Statistics</h1>
+        <h3>data visualization</h3>
+    </div>
+    <!--SAMPLE NEWS/ARTICLES ONLY-->
+    <div class="content-area">
+        <div class="wrapper">
+            <section class="news-1">
+                <h2>poverty incidence report (2012 & 2015)</h2>
+                <div class="graph-btn">
+                    <span>show graph by:</span>
+                    <button id="regionBtn">Region</button>
+                    <button id="municipalBtn">Municipal</button>
+                </div>
+                    <div id="chartDiv" class="graph"></div>
+                    <div id="chartDivPie" class="graph"></div> 
+                 <div class="below">
+                    <span>© 2023 data.world, inc</span><br>
+                    <button id="upload" style="display: none;"></button>
+                    <button class="dl">Download Dataset</button>
+                 </div> 
+                   
+                <br>
+                <a href="https://data.world/datasets/philippines">
+                    see more dataset here <i class="fa fa-arrow-right"></i></a><br><hr>
+            </section>
+
+            <section class="news-2">
+                <h2>Surviving extreme poverty in the Philippines</h2>
+                    <p>Almost 20 million Filipinos are deep in poverty, having less to eat and little hope of a better life. <br>
+                        Jose Toribio, a taxi driver in Manila, is up at five in the morning. He makes his cup of coffee and eats some pandesal, 
+                        or salt bread, known as the “poor man’s bread” for being a cheap staple in the Philippines.
+                        Sometimes he eats the remaining rice porridge left unsold the previous evening. 
+                        His wife Lisa Toribio prepares his packed lunch — omelet and rice.
+                        “It’s always egg and rice, sometimes sardines or corned beef, because it’s expensive to eat outside. 
+                        It’s cheaper when I bring my own food and water while driving the taxi,”  Toribio told UCA News... <br>
+                        <span>&#169;Union of Catholic Asian News.</span>
+                    </p>
+                <a href="https://www.ucanews.com/news/surviving-extreme-poverty-in-the-philippines/100241">
+                        continue reading <i class="fa fa-arrow-right"></i></a><br><hr>
+            </section>
+        </div> 
+    </div>
+    </main>
+    <script>
+        function togglePopup(){
+            document.getElementById("popup-1").classList.toggle("active");
+        }
+    </script> 
+    
+    <script type="module" src="./js/logout.js"></script>
+    <script src="./js/toggle.js"></script>
 </body>
 </html>
+        <!-- Firebase SDK -->
+        <!-- Required to import here in html because of using snapshot/onsnapshot function -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getFirestore, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCVcBjemdXl_Voqmf-bacf4kf9989tD9-w",
+      authDomain: "cobwebproject.firebaseapp.com",
+      projectId: "cobwebproject",
+      storageBucket: "cobwebproject.appspot.com",
+      messagingSenderId: "120520164746",
+      appId: "1:120520164746:web:5e8b969ba9c307f0c23473",
+      measurementId: "G-9M1TYVJ98Z"
+    };
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+const db2 = firebase.firestore();  // Function for Database Firestore 
+
+db2.collection("2015")
+.orderBy("PovertyIncidence", "desc")
+    .limit(20)
+.onSnapshot(
+  (querySnapshot) => {
+
+  let Poverty2015Data = [];
+    
+    querySnapshot.forEach((doc) => {
+
+          const data = doc.data();
+          const Municipality = data.Municipality;
+          const PovertyIncidence = parseFloat(data.PovertyIncidence);
+          Poverty2015Data.push({ x: Municipality, y: PovertyIncidence });
+        });
+
+    db2.collection("2012city")
+    .orderBy("PovertyIncidence", "desc")
+    .limit(20)
+.onSnapshot(
+  (querySnapshot) => { 
+    let Poverty2012Data = [];  
+
+    querySnapshot.forEach((doc) => {
+
+          const data = doc.data();
+          const Municipality = data.Municipality;
+          const PovertyIncidence = parseFloat(data.PovertyIncidence);
+          Poverty2012Data.push({ x: Municipality, y: PovertyIncidence });
+        });
+
+  // Create the chart using the retrieved data
+  var chart = new JSC.Chart("chartDiv", {
+    debug: true, // Set debug option to true to view full error messages
+
+    type: "column",
+    // legend: {
+    //   template: '%icon %name'
+    // },
+    legend_visible: false,
+    defaultSeries: {
+      palette: 'fiveColor36',
+      pointSelection: 'multiple',
+      firstPoint_legendEntry_lineAbove: true
+    },
+    toolbar_items_export_description: 'export menu',   //for export and printing the graph
+    title_label_text: 'Municipal and City Poverty Incidence', 
+    title_label_style: { 
+      color: '#263238', 
+      fontWeight: 'bold', 
+      fontSize: '20px',
+      margin_bottom:'20px',
+      margin_top: '30px',
+      align: 'center'
+    },
+  yAxis: { label_text: 'Poverty Incidence'}, 
+  defaultPoint_label: {
+    text: '%yValue',
+    placement: 'inside',
+    style: {
+      color: 'Black',
+      fontWeight: 'bold',
+      fontSize: '11px',
+    }
+  },
+  defaultPoint_label_autoHide:false, // Visible the value points of column
+  xAxis: { 
+    label_text: 'Municipal and City', 
+    defaultTick: { label: { rotate: -30 } }
+
+  },
+    series: [{
+      points: Poverty2012Data
+    }
+  ],
+  toolbar_items: {
+    "updateDropdown": {
+      type: "select",
+      position: "top",
+      height: "25px", // Set the height of the button to 30 pixels
+      width:"110px",
+      items: {
+        "Year 2012": {
+          events_click: function () {
+            // Code to update chart with new data
+            chart.series([{
+              points: Poverty2012Data
+            }])
+  
+          }
+        },
+        "Year 2015": {
+          events_click: function () {
+            // Code to revert chart to original data
+            chart.series([{
+              points: Poverty2015Data
+            }])
+  
+          }
+        }
+      },
+      style: {
+        color: '#3A5254',
+            fontSize: '12pt',
+            fontFamily: 'Arial',
+            fontWeight: 'bold',
+      }
+    }
+  } //toolbar items end
+});
+
+});
+
+});
+// end for Bar graph
+
+
+//Pie donut data visualization of region statistic
+
+db2.collection("2012region")
+.orderBy("PovertyIncidence", "desc")
+    .limit(12)
+.onSnapshot(
+  (querySnapshot) => {
+
+  let Poverty2012Data = [];
+    
+    querySnapshot.forEach((doc) => {
+
+      const data = doc.data();
+      const Region = data.Region;
+      const PovertyIncidence = parseFloat(data.PovertyIncidence);
+      Poverty2012Data.push({ x: Region, y: PovertyIncidence });
+    });
+
+    db2.collection("2015-region")
+    .orderBy("PovertyIncidence", "desc")
+    .limit(12)
+.onSnapshot(
+  (querySnapshot) => { 
+    let Poverty2015Data = [];  
+
+    querySnapshot.forEach((doc) => {
+
+      const data = doc.data();
+      const Region = data.Region;
+      const PovertyIncidence = parseFloat(data.PovertyIncidence);
+      Poverty2015Data.push({ x: Region, y: PovertyIncidence });
+    });
+  
+
+var chart2 = new JSC.Chart('chartDivPie', {
+  debug: true,
+  type: 'pie donut',
+  resizable: true,
+  width: '1000px', // specify the width of the chart in pixels
+  height: '500px',
+//   margin: 'auto',
+legend: {
+     template: '%icon %name',
+      position: 'bottom',
+    //   fill: '#f1f8ff',
+    //   boxVisible: true,
+    //   corners: 'round',
+    //   radius: 5,
+    //   margin_left: 30,
+    //   margin_right: 10,
+    margin_top: 10,
+      outline: { color: 'grass', width: 3 },
+      defaultEntry: {
+        iconWidth: 10,
+        padding: 2,
+        style: {
+          color: '#3A5254',
+          fontSize: '7pt',
+          fontStyle: 'italic',
+          fontFamily: 'Arial',
+          fontWeight: 'normal'
+        },
+        states: {
+          hover_style: { color: '#FF5254' },
+          hidden_style: { color: '#c2bec1' }
+        }
+      }
+    },
+
+  defaultPoint_tooltip: '<b>%name</b><br/>Poverty Incidence <b>%value%',
+  toolbar_items_export_description: 'export menu',   //for export and printing the graph
+  title_label_text: 'Region Poverty Level Estimation', 
+  title_label_style: { 
+    color: '#263238', 
+    fontWeight: 'bold', 
+    fontSize: '20px',
+  },
+  defaultPoint_label: {
+    text: '{%percentOfSeries:n1}%',
+    placement: 'inside',
+    style: {
+      color: 'grass',
+      fontWeight: 'bold',
+      fontSize: '15px'
+    }
+  },
+  defaultSeries: {
+    palette: 'waterMeadow',
+    pointSelection: 'multiple',
+    shape_size: '90%',
+    firstPoint_legendEntry_lineAbove: true
+  },
+  series: [
+    {
+    //   angle_orientation: 100,
+      points:Poverty2012Data
+    }
+  ], toolbar_items: {
+    "updateDropdown": {
+      type: "select",
+      position: "top",
+      height: "25px", // Set the height of the button to 30 pixels
+      width:"110px",
+      margin_top:"10px",
+      items: {
+        "Year 2012": {
+          events_click: function () {
+            // Code to update chart with new data
+            chart2.series([{
+              points: Poverty2012Data
+            }])
+  
+          }
+        },
+        "Year 2015": {
+          events_click: function () {
+            // Code to revert chart to original data
+            chart2.series([{
+              points: Poverty2015Data
+            }])
+  
+          }
+        }
+      },
+      style: {
+        color: '#3A5254',
+            fontSize: '13pt',
+            fontFamily: 'Arial',
+            fontWeight: 'bold',
+      }
+    }
+  } //toolbar items end
+});
+
+});
+});
+
+const regionBtn = document.getElementById("regionBtn");
+const municipalBtn = document.getElementById("municipalBtn");
+
+const chartDiv = document.getElementById("chartDiv");
+const chartDivPie = document.getElementById("chartDivPie");
+chartDivPie.style.display = "none";
+
+
+// Add an event listener to the region button
+regionBtn.addEventListener("click", function() {
+  // Hide the bar chart
+  chartDiv.style.display = "none";
+  // Change the chart type to pie
+chartDivPie.style.display = "block";
+});
+
+// Add an event listener to the Municipal button
+municipalBtn.addEventListener("click", function() {
+  // Hide the bar chart
+  chartDivPie.style.display = "none";
+  // Change the chart type to pie
+  chartDiv.style.display = "block";
+
+});
+
+</script>

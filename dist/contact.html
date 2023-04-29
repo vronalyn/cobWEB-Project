@@ -19,9 +19,11 @@
                 <li><a href="aboutUs.html">About</a></li>
                 <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
-            <button onClick="location.href='home.html'" id="sign-in" class="action-btn">
-                Sign in
-            </button>
+            <div class="btn">
+                <button onClick="location.href='form.html'" id="sign-in" 
+                class="action-btn">Sign in</button>
+                <button class="actionBtn" id="admin" onclick="location.href='adminLogin.html'"><i class='fas fa-user-cog'></i> </button>               
+            </div>
             <div class="toggle-btn"> 
                 <i class="fa fa-bars"></i>
             </div>
@@ -32,14 +34,17 @@
             <li><a href="news.html">News</a></li>
             <li><a href="aboutUs.html">About</a></li>
             <li><a href="contact.html" class="active">Contact Us</a></li>
-            <li><button onClick="location.href='home.html'" id="sign-in" class="action-btn">
-                Sign in
-            </button></li>
+            <div class="parent">
+                <button onClick="location.href='form.html'" id="sign-in" 
+                    class="action-btn">Sign in</button>
+                <button class="action-btn" id="admin" onclick="location.href='adminLogin.html'"><i class='fas fa-user-cog'></i> </button>
+            </div>
         </div>
     </header>
+
     <div class="Box-wrap">
         <div class="row">
-                <div class="contact column">
+                <div class="contact">
                     <h1>Contact Us</h1>
                     <p>Hello! Feel free to use the contact form to the right to reach out to us, or write us the old fashion</p>
                         <br>
@@ -48,13 +53,13 @@
                         <a href=""><i class="fa-solid fa-envelopes-bulk"></i> cobwebteam23@gmail.com</a>
                 </div>
 
-                <div class="form column">
+                <div class="form">
                     <p> Don't be afraid to reach out and contact us if you have any questions or need assistance.
                         Remember, 'The best way to predict your future is to create it.' </p> <br>
                    <span>-Abraham Lincoln.</span><br><br>
                 <form action="">
                     <input type="texts" name="fname" id="fname" Placeholder="First Name" >
-                    <input type="texts" name="lname" id="lname" Placeholder="last Name"> <br>
+                    <input type="texts" name="lname" id="lname" Placeholder="Last Name"> <br>
                     <input type="text" name="email" id="email" Placeholder="Email Address"> <br>
                     <input type="text" name="Subject" id="subject" Placeholder="Subject" > <br>
                     <textarea type="text" class="textarea" name="message" id="message"  placeholder="Write your message here.."></textarea>
@@ -63,10 +68,12 @@
                     <button id="contact-btn" class="btn-submit">Submit</button>
 
                 </form>
-                </div>
+            </div>
         </div>
     </div>
+
     <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/contact.js"></script>
     <script src="./js/toggle.js"></script>
 </body>
 </html>

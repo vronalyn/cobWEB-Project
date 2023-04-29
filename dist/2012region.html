@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>2012_Region</title>
+       
+        <!-- Jquery -->
+       <!-- I used a different source for datatables. -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+        <!-- bootsrap css -->
+        <link href="css/styles.css" rel="stylesheet" />
+        
+        <!-- Icon for Page -->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        
+
+    </head>
+    <body class="sb-nav-fixed">
+
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="Dashboard.html">PovertyPH</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            
+           <div style="position: absolute; right: 0%;">
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-3 ms-md-0 me-auto me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" id="logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </nav>
+
+<!-- Side navbar -->
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Core</div>
+                    <a class="nav-link" href="dashboard.html">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Dashboard
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Interface</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Dataset
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                2009 Table
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="2012region.html">Region</a>
+                                    <a class="nav-link" href="2012city.html">Municipal and City</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                2015 Table
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="2015region.html">Region</a>
+                                    <a class="nav-link" href="2015city.html">Municipal and City</a>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+               
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                ADMIN
+            </div>
+        </nav>
+    </div>
+
+
+
+           <!--  ################################################################################ -->
+ <!-- Add Modal -->
+ <div class="modal fade" id="addData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Data</h1>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                    <form >
+                        <div class="modal-body">
+                                                   <div class="form-group dropdown">
+                                                        <label> Region  </label>
+
+                                                        <!-- <input type="text" placeholder="Enter the Region" name="RegionAdd" id="RegionAdd"  required> -->
+                                                        <select id="RegionAdd" class="form-control">
+                                                            <option value="">Enter Region </option>
+                                                            <option>National Capital Region (NCR) </option>
+                                                             <option>CORDILLERA ADMINISTRATIVE REGION (CAR)</option>
+                                                            <option>BARMM</option>
+                                                            <option>MIMAROPA REGION</option>
+                                                            <option>Region I</option>
+                                                            <option>Region II</option>
+                                                            <option>Region III</option>
+                                                            <option>Region IV</option>
+                                                            <option>Region V</option>
+                                                            <option>Region VI </option>
+                                                            <option>Region VII </option>
+                                                            <option>Region VIII </option>
+                                                            <option>Region IX </option>
+                                                            <option>Region X</option>
+                                                            <option>Region XI</option>
+                                                            <option>Region XII</option>
+                                                            <option>Region XIII</option>
+
+                                                          </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Poverty Incidence </label>
+                                                        <input type="number" placeholder="Poverty Incidence" name="PovertyIncidenceAdd" id="PovertyIncidenceAdd" class="form-control" required>
+                                                        <!--  <small class="error_email" style="color: red;"></small> -->
+                                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button"  id="submitData" name="submitData" class="btn btn-primary" >Add</button>
+                            </div>
+                    </form>
+        </div>
+    </div>
+</div>
+
+
+ <!--  ################################################################################ ################################################################################-->
+
+            <!--Edit Modal -->
+            <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data</h1>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+    
+                            <form>
+                                <div class="modal-body">
+
+                                    <div class="form-group">
+                                        <label> Region  </label>
+                                        <input type="text" placeholder="Enter the Region" name="RegionEdit" id="RegionEdit" class="form-control" required>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Poverty Incidence </label>
+                                        <input type="float" placeholder="Poverty Incidence" name="PovertyIncidenceEdit" id="PovertyIncidenceEdit" class="form-control" required>
+                                        <!--  <small class="error_email" style="color: red;"></small> -->
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                                  <button type="button" name="update" id="update-button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form>
+                              
+                    </div>
+                </div>
+        </div>
+
+
+
+
+         <!--  ################################################################################ ################################################################################-->
+
+        <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                 <h5>Are you sure you want to delete this data?</h5> 
+                 <p>Deleting this data cannot be undone.</p>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary close" data-dismiss="modal">No, go back</button>
+                  <button type="button" id="deleteData" class="btn btn-primary ">Yes, continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+     <!--  ################################################################################################################################################################ -->
+
+            <!-- Content -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">2012 Regional Data on Poverty</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="Dashboard.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">2012-Region</li>
+                        </ol>
+                        <!-- <div class="card mb-4">
+                            <div class="card-body">
+                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                                .
+                            </div>
+                        </div> -->
+
+                        <div >
+                        <h4 style="margin-top: 10px; margin-right: 5px; text-align: right;">
+                            <!-- Button trigger modal -->
+                            <button type="button" id class="btn btn-primary" data-toggle="modal" data-target="#addData">
+                                Add Data
+                            </button>
+                        </h4>
+                        </div>
+                        <div class="card mb-4">
+                         
+                            <!-- <div class="card-header">                                      
+                              
+                            </div> -->
+
+                            <div class="card-body">
+                
+                                        <table class="table table-bordered table-striped" id="2015Datatables">
+                                            <thead>
+                                                <tr>
+                                                    <th>List No.</th>
+                                                    <th>Region</th>
+                                                    <th>Poverty Incidence</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                          
+                                            <tbody  >
+                                                <!-- <tr >
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                
+                                                    <td>                                                            
+                                                        
+                                                            <button type="button" class="btn btn-primary editbtn">Edit </button>
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                                                                delete</button>
+                                                                
+                                                        
+                                                        </td>
+                                                </tr> -->
+                                            </tbody>
+                                        </table>
+                
+                                    </div>
+                                </div>
+                            </div>
+                    
+
+            </main>
+
+              
+         <div>
+    
+    
+                
+               
+
+            </div>
+        </div>
+
+        <script type="module" src="js/2012/addregion.js"></script>
+        <script type="module" src="js/2012/getregion.js"></script>
+        <script type="module" src="./js/signout.js"></script>
+        
+        <!-- Firebase SDK -->
+        <!-- Required to import here in html because of using snapshot/onsnapshot function -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+
+
+        <!-- template bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+         -->
+        <!-- Modal -->
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+       
+    </body>
+
+</html>

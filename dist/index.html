@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/about.css">   
+    <link rel="stylesheet" href="./css/index.css">   
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Website Name</title>
 </head>
@@ -14,9 +14,11 @@
         <nav class="nav">
             <div class="logo"><span> Web</span>A</div>
             
-            <button onClick="location.href='form.html'" id="sign-in" class="action-btn">
-                <i class='fas'>&#xf4fe;</i>
-            </button>
+            <div class="btn">
+                <button onClick="location.href='form.html'" id="sign-in" 
+                class="action-btn">Sign in</button>
+                <button class="actionBtn" id="admin" onclick="location.href='adminLogin.html'"><i class='fas fa-user-cog'></i> </button>               
+            </div>
             <!--
             <div class="toggle-btn"> 
                 <i class="fa fa-bars"></i>

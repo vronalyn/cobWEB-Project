@@ -22,7 +22,7 @@ console.log(app)
 const storage = getStorage();
 //connectStorageEmulator(storage, 'localhost', 9199);
 
-const storageTxt = ref(storage, "storage.txt");
+const storageData = ref(storage, "Poverty-Incidence-Report.csv");
 /** 
 const notesFolder = ref(storage, "notes");
 const newTxtInSubFolder = ref(storage, "newText.txt");
@@ -88,12 +88,12 @@ downloadBtn.addEventListener('click', () => {
 
 const downloadBtn = document.querySelector('.dl')
 downloadBtn.addEventListener('click', () => {
-  getDownloadURL(storageTxt).then((url) => {
+  getDownloadURL(storageData).then((url) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const downloadLink = document.createElement('a');
         downloadLink.href = url;
-        downloadLink.download = storageTxt.name; // set the download filename
+        downloadLink.download = storageData.name; // set the download filename
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);

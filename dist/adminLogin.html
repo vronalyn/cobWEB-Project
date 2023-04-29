@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:600,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Sign in as Admin</title>
+    <link rel="stylesheet" href="./css/adminLogin.css">
+</head>
+<body>
+    
+    <img src="./img/admin.png" alt="" srcset="">
+    <h3>Sign in with your Administrator Account</h3>
+
+    <div id="login-card" class="card" style="background-color: #e9e9e9ce;">
+        <div class="card-body">
+          <h2 class="text-center" style="color: #26789e;">Admin Login</h2>
+          <br>
+          
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pswd">
+        </div>
+            <div class="btns">
+            <button onclick="history.back()" class="btn btn-secondary btn-block ">Cancel</button>
+            <button type="submit" id="sign-in" class="btn btn-primary deep-purple btn-block ">Sign in</button>
+        </div>
+        <br>
+            <br>
+            
+        <div id="btn" class="text-center">
+           <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
+           <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
+           <button type="button" class="btn btn-info btn-circle btn-sm"><i class="fa fa-twitter"></i></button>
+        </div>
+         
+          
+        </div>
+    </div>
+
+<!--Admin Authentication-->    
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+
+    import { getAuth, createUserWithEmailAndPassword, 
+        signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, } 
+        from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCVcBjemdXl_Voqmf-bacf4kf9989tD9-w",
+        authDomain: "cobwebproject.firebaseapp.com",
+        projectId: "cobwebproject",
+        storageBucket: "cobwebproject.appspot.com",
+        messagingSenderId: "120520164746",
+        appId: "1:120520164746:web:5e8b969ba9c307f0c23473",
+        measurementId: "G-9M1TYVJ98Z"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider(app);
+
+    document.getElementById("sign-in").addEventListener("click", function() {
+  var email =  document.getElementById("email").value;
+  var password = document.getElementById("pass").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    // Only allow login for specific UID
+    if (user.uid === '1EhPqoTug5QzklG03FRWkDQDyQ12') {
+      console.log(user);
+      alert(user.email + " Login successfully!!!");
+      window.location = "Dashboard.html";
+    } else {
+      throw new Error("Unauthorized access");
+    }
+  })
+  .catch((error) => {
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    alert(errorMessage);
+  });		  
+});
+
+</script> 
+
+</body>
+</html>

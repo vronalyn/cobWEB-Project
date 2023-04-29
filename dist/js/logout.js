@@ -28,15 +28,3 @@ onAuthStateChanged(auth,(user) => {
     }
   });
   
-   //----- Logout code start	  
- document.getElementById("sign-in").addEventListener("click", function() {
-    signOut(auth).then(() => {
-    // Sign-out successful.
-    console.log('Sign-out successful.');
-    alert('Sign-out successful.');
-    window.location.href = "./index.html";
-    }).catch((error) => {
-    // An error happened.
-    console.log('An error happened.');
-    });		  		  
-  });

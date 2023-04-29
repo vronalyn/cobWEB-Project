@@ -1,0 +1,60 @@
+body{
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(5, 2, 4, 0.73)),
+    url('../img/4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+img{
+    display: block;
+    margin: 10% auto 0;
+}
+h3{
+    text-align: center;
+}
+#login-card{
+    width:350px;
+    border-radius: 25px;
+    margin:80px auto;
+}
+   
+.form-control{
+    border-radius:15px;
+    background-color: #ebf0fc;
+    border-color: #ebf0fc;
+    color: #9da3b0;
+}
+.btns{
+    text-align: center;
+}
+.btn {
+    border-radius:30px;
+    display: inline-block;
+    width: 49%;
+}
+.btn-block+.btn-block {
+    margin-top: 0;
+} 
+  
+#btn{
+    position: absolute; 
+    bottom: -35px; 
+    padding: 5px;
+    margin: 0px 55px;
+    align-items: center;
+    border-radius: 5px"
+}
+#container{
+    margin-top:25px;
+}
+   
+.btn-circle.btn-sm { 
+    width: 40px; 
+    height: 40px; 
+    padding: 2px 0px; 
+    border-radius: 25px; 
+    font-size: 14px; 
+    text-align: center;
+    margin: 8px;
+}
